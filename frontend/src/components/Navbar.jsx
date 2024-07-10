@@ -97,7 +97,7 @@ const Navbar = () => {
         <a href="/contact">Contact</a>
       </li>
       <li key="about">
-        <a>About</a>
+        <a href="/about">About</a>
       </li>
       <li key="darkmode" className="lg:hidden">
         <label className="swap swap-rotate">
