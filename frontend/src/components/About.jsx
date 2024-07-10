@@ -24,10 +24,11 @@ const About = () => {
             available in our database.
           </p>
         </div>
-        <div className="w-full lg:w-8/12 ">
+        <div className=" w-full lg:w-8/12 ">
           <img
             className="w-full h-full"
-            src="https://i.ibb.co/FhgPJt8/Rectangle-116.png"
+            // src="https://i.ibb.co/FhgPJt8/Rectangle-116.png"
+            src="/college.jpeg"
             alt="A group of People"
           />
         </div>
@@ -47,16 +48,7 @@ const About = () => {
             Book Store website was born. During our 5th semester at HCOE, we
             embarked on this journey to develop a comprehensive database-driven
             platform that not only makes book searching easy but also enhances
-            the overall user experience. Our goal is to provide a seamless
-            interface where users can quickly find information about the books
-            they are looking for. Each member of our team brings a unique set of
-            skills and expertise to the project, allowing us to collaborate
-            effectively and push the boundaries of what we can achieve. We are
-            committed to continuously improving our website, adding new
-            features, and expanding our database to meet the diverse needs of
-            our users. Thank you for visiting our website. We hope you find it
-            helpful and enjoyable. If you have any suggestions or feedback,
-            please feel free to reach out to us.
+            the overall user experience.
           </p>
         </div>
         <div className="w-full lg:w-8/12 lg:pt-8">
