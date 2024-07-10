@@ -11,6 +11,7 @@ const bookSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'PDF',
   },
+  description: String,
 });
 
 const bookModel = mongoose.model('books', bookSchema);
