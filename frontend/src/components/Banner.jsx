@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import banner from '/Banner.png';
 
 const Banner = () => {
@@ -32,10 +32,12 @@ const Banner = () => {
               <input type="text" className="grow" placeholder="Email" />
             </label>
           </div>
-          <button className="mt-6 btn btn-secondary">Get Started</button>
+          <a href="#slider" className="mt-6 btn btn-secondary ">
+            Get Started
+          </a>
         </div>
-        <div className="order-1 md:order-2 h-full w-full md:w-1/2 flex justify-center  mt-28">
-          <img src={banner} className="w-92 h-92" alt="" />
+        <div className="order-1 md:order-2 h-full w-full md:w-1/2 flex justify-center  mt-[-50px]">
+          <img src="/Banner1.png" className="h-92 h-92" alt="" />
         </div>
       </div>
     </>

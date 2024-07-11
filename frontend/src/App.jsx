@@ -14,6 +14,7 @@ import AboutUs from './About/AboutUs';
 
 function App() {
   const [authUser, setAuthUser] = useAuth();
+
   console.log(authUser);
   return (
     <>

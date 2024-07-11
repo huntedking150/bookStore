@@ -71,7 +71,7 @@ function Freebooks() {
           </p>
         </div>
 
-        <div className="">
+        <div id="slider">
           <Slider {...settings}>
             {filterData.map((item) => (
               <Cards item={item} key={item.id} />

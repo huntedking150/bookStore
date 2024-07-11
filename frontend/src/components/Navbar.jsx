@@ -175,7 +175,7 @@ const Navbar = () => {
               </ul>
             </div>
             <a href="/" className="btn btn-ghost text-3xl cursor-pointer">
-              bookStore
+              पुस्तक वाटिका
             </a>
           </div>
           <div className="navbar-end">
