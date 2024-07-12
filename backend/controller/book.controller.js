@@ -62,6 +62,8 @@ export const getBookDetails = async (req, res) => {
     if (!book) {
       return res.status(404).json({ message: 'Book not found' });
     }
+    book.views += 1;
+    await book.save(); // Save the updated view count
     res.json(book);
   } catch (error) {
     console.error('Error fetching book details:', error);
@@ -76,6 +78,16 @@ export const getBook = async (req, res) => {
     res.status(200).json(books);
   } catch (error) {
     console.error('Error fetching books:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
+
+export const getTopPicks = async (req, res) => {
+  try {
+    const topPicks = await Book.find().sort({ views: -1 }).limit(6); // Adjust limit as needed
+    res.json(topPicks);
+  } catch (error) {
+    console.error('Error fetching top picks:', error);
     res.status(500).json({ message: 'Server Error' });
   }
 };

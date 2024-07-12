@@ -12,6 +12,7 @@ const bookSchema = mongoose.Schema({
     ref: 'PDF',
   },
   description: String,
+  views: { type: Number, default: 0 },
 });
 
 const bookModel = mongoose.model('books', bookSchema);

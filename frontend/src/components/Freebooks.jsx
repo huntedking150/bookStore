@@ -8,6 +8,7 @@ import Cards from './Cards';
 
 function Freebooks() {
   const [book, setBook] = useState([]);
+  const [topPicks, setTopPicks] = useState([]);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -22,7 +23,23 @@ function Freebooks() {
     fetchBook();
   }, []);
 
+  useEffect(() => {
+    const fetchTopPicks = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:4000/book/top-picks'
+        ); // New route for top picks
+        setTopPicks(response.data);
+      } catch (error) {
+        console.error('Error fetching top picks:', error);
+      }
+    };
+
+    fetchTopPicks();
+  }, []);
+
   const filterData = book.filter((data) => data.category === 'Free');
+  // const filterData = book.find().sort({ views: -1 }).limit(5);
 
   var settings = {
     dots: true,
@@ -63,7 +80,9 @@ function Freebooks() {
     <>
       <div className="max-w-screen-2xl container mx-auto md:px-20 px-4">
         <div>
-          <h1 className="font-semibold text-xl mb-2">Free Offered Courses</h1>
+          <h1 className="font-semibold text-2xl text-pink-800 mb-2">
+            Our Top Picks
+          </h1>
           <p>
             Explore our diverse range of free courses, designed to empower
             learners of all levels with essential knowledge and skills. Start
@@ -73,7 +92,11 @@ function Freebooks() {
 
         <div id="slider">
           <Slider {...settings}>
-            {filterData.map((item) => (
+            {/* {filterData.map((item) => (
+              <Cards item={item} key={item.id} />
+            ))} */}
+
+            {topPicks.map((item) => (
               <Cards item={item} key={item.id} />
             ))}
           </Slider>

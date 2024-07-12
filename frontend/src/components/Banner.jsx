@@ -15,10 +15,10 @@ const Banner = () => {
             <p className="text-xl">
               Welcome to our platform dedicated to expanding your knowledge and
               fostering curiosity. Dive into a wealth of resources curated to
-              inspire and empower your learning journey. Whether you're here to
+              inspire and empower your learning journey. Whether you are here to
               explore cutting-edge technologies, master new skills, or deepen
-              your understanding of the world around us, you'll find everything
-              you need to fuel your passion for continuous growth.
+              your understanding of the world around us, you will find
+              everything you need to fuel your passion for continuous growth.
             </p>
             <label className="input input-bordered flex items-center gap-2 cursor-pointer">
               <svg
