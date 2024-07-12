@@ -3,6 +3,7 @@ import axios from 'axios';
 import Logout from './Logout';
 import Login from './Login';
 import { useAuth } from '../context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [authUser, setAuthUser] = useAuth();
@@ -15,6 +16,7 @@ const Navbar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [isInputFocused, setIsInputFocused] = useState(false);
   const bodyRef = useRef(document.body);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const element = document.documentElement;
@@ -83,6 +85,12 @@ const Navbar = () => {
 
   const handleInputBlur = () => {
     setIsInputFocused(false);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setQuery(suggestion.name);
+    setSuggestions([]);
+    navigate(`/book/${suggestion.id}`);
   };
 
   const navItems = (
@@ -208,16 +216,18 @@ const Navbar = () => {
                     </svg>
                   </button>
                 </label>
-
                 {isInputFocused && suggestions.length > 0 && (
                   <div className="autocomplete absolute bg-white mt-2 w-full rounded-full shadow-lg z-10">
-                    {suggestions.map((suggestion, index) => (
+                    {suggestions.map((suggestion) => (
                       <div
-                        key={index}
+                        // key={index}
+                        key={suggestion.id}
                         className="suggestion-item p-2 cursor-pointer hover:bg-pink-500 bg-slate-900"
-                        onClick={() => setQuery(suggestion)}
+                        // onClick={() => setQuery(suggestion)}
+                        // onClick={() => setQuery(suggestion.title)}
+                        onMouseDown={() => handleSuggestionClick(suggestion)}
                       >
-                        {suggestion}
+                        {suggestion.name}
                       </div>
                     ))}
                   </div>

@@ -11,6 +11,7 @@ const Banner = () => {
               Welcome! Discover new insights and learn something
               <span className="text-pink-700"> new everyday!!!</span>
             </h1>
+
             <p className="text-xl">
               Welcome to our platform dedicated to expanding your knowledge and
               fostering curiosity. Dive into a wealth of resources curated to

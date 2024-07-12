@@ -35,7 +35,7 @@ const BookDetails = () => {
           </div>
           <div className="ml-5">
             <a href="/" className=" btn btn-ghost text-xl text-pink-800">
-              bookStore
+              पुस्तक वाटिका
             </a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import Home from './home/Home';
 import Courses from './Courses/Courses';
@@ -14,16 +14,23 @@ import AboutUs from './About/AboutUs';
 
 function App() {
   const [authUser, setAuthUser] = useAuth();
-
+  const location = useLocation();
   console.log(authUser);
   return (
     <>
       <div className="dark:bg-slate-900 dark:text-white">
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route
             path="/course"
-            element={authUser ? <Courses /> : <Navigate to="/signup" />}
+            element={
+              authUser ? (
+                <Courses />
+              ) : (
+                <Navigate to="/signup" state={{ from: location }} />
+              )
+            }
           />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contact" element={<ContactUs />} />

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { json, Link, useNavigate } from 'react-router-dom';
+import { json, Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useAuth } from '../context/AuthProvider';
 
 const Login = () => {
+  const [authUser, setAuthUser] = useAuth();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const {
     register,
     handleSubmit,
@@ -24,7 +28,8 @@ const Login = () => {
       setLoginError('');
       closeModal();
       localStorage.setItem('user', JSON.stringify(response.data.user));
-      navigate('/');
+      // navigate('/');
+      navigate(from);
       toast.success('Login successful');
       closeModal;
       window.location.reload();

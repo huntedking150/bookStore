@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Login from './Login';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useAuth } from '../context/AuthProvider';
 
 const Signup = () => {
+  const [authUser, setAuthUser] = useAuth();
   const {
     register,
     handleSubmit,
@@ -13,6 +15,8 @@ const Signup = () => {
   } = useForm();
   const [errorFromSubmit, setErrorFromSubmit] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const handleSubmits = async (data) => {
     const { name, email, password } = data;
@@ -25,7 +29,13 @@ const Signup = () => {
       console.log('User registered successfully:', response.data);
       toast.success('SignUp successful');
 
-      navigate('/');
+      if (from === '/course') {
+        document.getElementById('my_modal_3').showModal();
+      } else {
+        navigate('/');
+      }
+
+      // navigate('/');
     } catch (error) {
       console.error('Error registering user:', error);
       setErrorFromSubmit(
